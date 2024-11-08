@@ -1,0 +1,107 @@
+/* 导航栏样式 */
+.navbar {
+    background-color: lightblue;  /* 设置背景颜色为浅蓝色 */
+    display: flex;
+    justify-content: space-between; /* 左右部分之间分配空间 */
+    align-items: center;  /* 垂直居中 */
+    color: white;  /* 设置文字颜色为白色 */
+    padding: 15px;  /* 内边距 */
+    text-align: center;  /* 居中对齐 */
+    position: fixed;  /* 固定在页面顶部 */
+    top: 0;
+    width: 100%;  /* 占满页面宽度 */
+    z-index: 1000;  /* 确保导航栏在其他内容之上 */
+}
+
+/* 左侧部分（欢迎文字） */
+.navbar .left {
+    flex: 0.3;  /* 使左侧部分占据尽可能大的空间 */
+}
+
+/* 右侧部分（导航链接） */
+.navbar .right {
+    display: flex;
+    justify-content: flex-end;  /* 将链接对齐到右侧 */
+    gap: 0px;  /* 设置链接之间的间隔 */
+    flex: 0.7;  /* 右侧部分占据剩余的空间 */
+}
+
+/* 导航栏中的链接 */
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;  /* 去掉下划线 */
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #ffcc00;  /* 鼠标悬停时更改链接颜色 */
+}
+
+/* Banner 样式 */
+.banner {
+    background: linear-gradient(to right, #4CAF50, #8BC34A); /* 渐变背景 */
+    text-align: center;
+    padding: 20px;
+    color: white;
+    animation: fade-in 2s;
+}
+
+/* 渐变背景动画 */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 内容容器 */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 在屏幕宽度小于768px时的响应式样式 */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* 页面内容的上边距 */
+body {
+    padding-top: 100px;  /* 给页面添加足够的上边距，避免导航栏覆盖内容 */
+}
+
+/* 头部样式 */
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #4c3fb1, #ff6161);
+    padding: 10px 10px;
+    z-index: 1;
+}
+
+.plain-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 30px;  /* 根据实际需求指定大小 */
+    font-weight: bold;  /* 根据需要指定粗细 */
+}
