@@ -9,8 +9,9 @@
     text-align: center;  /* 居中对齐 */
     position: fixed;  /* 固定在页面顶部 */
     top: 0;
-    width: 100%;  /* 占满页面宽度 */
+    width: 97%;  /* 占满页面宽度 */
     z-index: 1000;  /* 确保导航栏在其他内容之上 */
+    overflow-x: auto; /* 当内容超出时显示滚动条 */
 }
 
 /* 左侧部分（欢迎文字） */
@@ -18,12 +19,16 @@
     flex: 0.3;  /* 使左侧部分占据尽可能大的空间 */
 }
 
+.navbar .left a:hover{
+    color: lightslategray;  /* 鼠标悬停时更改链接颜色 */
+}
+
 /* 右侧部分（导航链接） */
 .navbar .right {
     display: flex;
     justify-content: flex-end;  /* 将链接对齐到右侧 */
-    gap: 0px;  /* 设置链接之间的间隔 */
-    flex: 0.7;  /* 右侧部分占据剩余的空间 */
+    gap: 15px;  /* 设置链接之间的间隔 */
+    flex: 1;  /* 右侧部分占据剩余的空间 */
 }
 
 /* 导航栏中的链接 */
@@ -35,7 +40,7 @@
 }
 
 .navbar ul li {
-    margin: 0 15px;
+    margin: 0 1px;
 }
 
 .navbar ul li a {
@@ -45,7 +50,7 @@
 }
 
 .navbar ul li a:hover {
-    color: #ffcc00;  /* 鼠标悬停时更改链接颜色 */
+    color: orange;  /* 鼠标悬停时更改链接颜色 */
 }
 
 /* Banner 样式 */
@@ -87,17 +92,6 @@ body {
     padding-top: 100px;  /* 给页面添加足够的上边距，避免导航栏覆盖内容 */
 }
 
-/* 头部样式 */
-header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to right, #4c3fb1, #ff6161);
-    padding: 10px 10px;
-    z-index: 1;
-}
-
 .plain-link {
     color: inherit;
     text-decoration: none;
@@ -105,3 +99,4 @@ header {
     font-size: 30px;  /* 根据实际需求指定大小 */
     font-weight: bold;  /* 根据需要指定粗细 */
 }
+

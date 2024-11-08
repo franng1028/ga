@@ -13,9 +13,9 @@
         </div>
         <div class="right">
             <ul>
-                <li><a href="number_calculator.php">数字计算器|</a></li>
-                <li><a href="length_calculator.php?type">长度转换|</a></li>
-                <li><a href="weight_calculator.php?type">重量转换|</a></li>
+                <li><a href="number_calculator.php">数字计算器 |</a></li>
+                <li><a href="length_calculator.php?type">长度转换 |</a></li>
+                <li><a href="weight_calculator.php?type">重量转换 |</a></li>
                 <li><a href="temperature_calculator.php">温度转换</a></li>
             </ul>
         </div>
