@@ -22,9 +22,18 @@
         </div>
     </div>
 
+    <!-- 左侧导航栏 -->
+    <div class="sidebar">
+        <h3>快速导航</h3>
+        <ul>
+            <li><a href="basic_calculator.php">基础计算器</a></li>
+            <li><a href="scientific_calculator.php">科学计算器</a></li>
+        </ul>
+    </div>
+
     <!-- 计算器部分 -->
     <div class="container">
-        <h2>数字计算器</h2>
+        <h2>基础计算器</h2>
 
         <!-- 计算器表单 -->
         <form method="post">

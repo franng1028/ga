@@ -23,6 +23,15 @@
         </div>
     </div>
 
+    <!-- 左侧导航栏 -->
+    <div class="sidebar">
+        <h3>快速导航</h3>
+        <ul>
+            <li><a href="basic_calculator.php">基础计算器</a></li>
+            <li><a href="scientific_calculator.php">科学计算器</a></li>
+        </ul>
+    </div>
+
     <div class="calculator">
         <input type="text" class="display" id="display" placeholder="0" autofocus>
         <div class="buttons">

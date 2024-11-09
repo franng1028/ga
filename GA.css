@@ -5,7 +5,7 @@
     padding: 20px;
     color: white;
     animation: fade-in 2s;
-    width: 97%
+    width: 100%
 }
 
 .banner ul {
@@ -41,7 +41,7 @@
     text-align: center;  /* 居中对齐 */
     position: fixed;  /* 固定在页面顶部 */
     top: 0;
-    width: 97%;  /* 占满页面宽度 */
+    width: 100%;  /* 占满页面宽度 */
     z-index: 1000;  /* 确保导航栏在其他内容之上 */
     overflow-x: auto; /* 当内容超出时显示滚动条 */
 }
@@ -61,6 +61,7 @@
     justify-content: flex-end;  /* 将链接对齐到右侧 */
     gap: 15px;  /* 设置链接之间的间隔 */
     flex: 1;  /* 右侧部分占据剩余的空间 */
+    margin-right: 50px;
 }
 
 /* 导航栏中的链接 */
@@ -158,21 +159,23 @@
 /* 页面内容的上边距 */
 body {
     padding-top: 0px;  /* 给页面添加足够的上边距，避免导航栏覆盖内容 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    margin: 0;
+    display: flex;  /* 启用 Flexbox 布局，将子元素作为弹性盒子 */
+    flex-direction: column;  /* 子元素按列排列（垂直方向） */
+    align-items: center;  /* 子元素水平居中 */
+    justify-content: center;  /* 子元素垂直居中 */
+    min-height: 100vh;  /* 最小高度为 100% 视口高度，即使内容不足一屏也会占满整个页面 */
+    background-color: #f0f0f0;  /* 背景颜色设置为浅灰色 */
+    font-family: Arial, sans-serif;  /* 字体设置为 Arial，若 Arial 不可用则使用 sans-serif 字体 */
+    margin: 0;  /* 去除页面默认外边距，避免页面出现滚动条 */
 }
+
 .calculator {
     background-color: #333;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 450px;
+    margin-top: 70px; /* 新增这一行，将计算器往下移动 */
 }
 .display {
     background-color: #000;     /* 设置背景颜色为黑色 */
@@ -208,4 +211,44 @@ button.clear {
 }
 button.clear:hover {
     background-color: #e53935;
+}
+
+/* 左侧导航栏样式 */
+.sidebar {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    overflow-y: auto; /* 当内容过多时，自动出现滚动条 */
+}
+
+/* 导航栏标题 */
+.sidebar h3 {
+    margin-bottom: 15px;
+}
+
+/* 导航栏列表样式 */
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #555;
 }
