@@ -1,3 +1,35 @@
+/* Banner 样式 */
+.banner {
+    background: linear-gradient(to right, #4CAF50, #8BC34A); /* 渐变背景 */
+    text-align: center;
+    padding: 20px;
+    color: white;
+    animation: fade-in 2s;
+    width: 97%
+}
+
+.banner ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;  /* 垂直排列链接 */
+}
+
+.banner ul li {
+    margin: 0 1px;
+}
+
+.banner ul li a {
+    color: greenyellow;
+    text-decoration: none;  /* 去掉下划线 */
+    transition: color 0.3s;
+}
+
+.banner ul li a:hover {
+    color: sienna;  /* 鼠标悬停时改变颜色 */
+}
+
 /* 导航栏样式 */
 .navbar {
     background-color: lightblue;  /* 设置背景颜色为浅蓝色 */
@@ -53,37 +85,6 @@
     color: orange;  /* 鼠标悬停时更改链接颜色 */
 }
 
-/* Banner 样式 */
-.banner {
-    background: linear-gradient(to right, #4CAF50, #8BC34A); /* 渐变背景 */
-    text-align: center;
-    padding: 20px;
-    color: white;
-    animation: fade-in 2s;
-}
-
-.banner ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;  /* 垂直排列链接 */
-}
-
-.banner ul li {
-    margin: 0 1px;
-}
-
-.banner ul li a {
-    color: greenyellow;
-    text-decoration: none;  /* 去掉下划线 */
-    transition: color 0.3s;
-}
-
-.banner ul li a:hover {
-    color: sienna;  /* 鼠标悬停时改变颜色 */
-}
-
 /* 渐变背景动画 */
 @keyframes fade-in {
     from { opacity: 0; }
@@ -101,6 +102,26 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
+.container a {
+    text-decoration: none;  /* 去掉下划线 */
+    color: blue;  /* 可选：使链接颜色继承父元素颜色 */
+}
+
+.container ul li a:hover {
+    color: rgb(0, 0, 210);  /* 鼠标悬停时更改链接颜色 */
+}
+
+.container ul {
+    list-style-type: none;  /* 去掉默认的点或数字 */
+    padding: 0;  /* 去掉内边距 */
+    margin: 0;  /* 去掉外边距 */
+}
+
+.container li {
+    margin: 0;  /* 去掉每个列表项的间距 */
+}
+
 
 /* 在屏幕宽度小于768px时的响应式样式 */
 @media (max-width: 768px) {
@@ -125,11 +146,6 @@
     }
 }
 
-/* 页面内容的上边距 */
-body {
-    padding-top: 100px;  /* 给页面添加足够的上边距，避免导航栏覆盖内容 */
-}
-
 /* 链接样式 */
 .plain-link {
     color: inherit;
@@ -139,3 +155,57 @@ body {
     font-weight: bold;  /* 根据需要指定粗细 */
 }
 
+/* 页面内容的上边距 */
+body {
+    padding-top: 0px;  /* 给页面添加足够的上边距，避免导航栏覆盖内容 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+.calculator {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+}
+.display {
+    background-color: #000;     /* 设置背景颜色为黑色 */
+    color: #0f0;                /* 设置文字颜色为绿色 */
+    font-size: 24px;            /* 调整文字的大小 */
+    border: none;               /* 去除边框 */
+    padding: 15px;              /* 设置内部边距（调整黑框的内边距大小） */
+    width: 93%;                /* 设置宽度为父元素的 100% */
+    border-radius: 5px;         /* 设置圆角半径 */
+    text-align: right;          /* 文字右对齐 */
+    margin-bottom: 20px;        /* 设置黑框底部的外边距 */
+}
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #45a049;
+}
+button.clear {
+    background-color: #f44336;
+}
+button.clear:hover {
+    background-color: #e53935;
+}
