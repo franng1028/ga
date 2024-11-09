@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>长度计算器</title>
+    <title>高级数字计算器</title>
     <link rel="stylesheet" type="text/css" href="GA.css">
     <style>
         
@@ -19,7 +19,7 @@
                 <li><a href="number_calculator.php">数字计算器 |</a></li>
                 <li><a href="length_calculator.php">长度转换 |</a></li>
                 <li><a href="weight_calculator.php">重量转换 |</a></li>
-                <li><a href="temperature_calculator.php">温度转换 | </a></li>
+                <li><a href="temperature_calculator.php">温度转换 |</a></li>
                 <li><a href="currency_converter.php">汇率转换</a></li>
             </ul>
         </div>
@@ -27,27 +27,34 @@
 
     <!-- 计算器部分 -->
     <div class="container">
-        <h2>长度转换器</h2>
+        <h2>数字计算器</h2>
 
-        <!-- number_calculator.php -->
+        <!-- 计算器表单 -->
         <form method="post">
-            <input type="number" name="num1" placeholder="数字1" required>
-            <input type="number" name="num2" placeholder="数字2" required>
+            <input type="number" name="num1" placeholder="数字1" step="0.01" required>
+            <input type="number" name="num2" placeholder="数字2" step="0.01">
             <select name="operation">
-                <option value="add">加</option>
-                <option value="subtract">减</option>
-                <option value="multiply">乘</option>
-                <option value="divide">除</option>
+                <option value="add">加法</option>
+                <option value="subtract">减法</option>
+                <option value="multiply">乘法</option>
+                <option value="divide">除法</option>
+                <option value="power">幂运算 (num1 ^ num2)</option>
+                <option value="sqrt1">平方根 (√num1)</option>
+                <option value="sqrt2">平方根 (√num2)</option>
+                <option value="log10">对数 (log10(num1))</option>
+                <option value="sin">正弦 (sin(num1))</option>
+                <option value="cos">余弦 (cos(num1))</option>
+                <option value="tan">正切 (tan(num1))</option>
             </select>
             <button type="submit">计算</button>
         </form>
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $num1 = $_POST['num1'];
-            $num2 = $_POST['num2'];
+            $num1 = isset($_POST['num1']) ? $_POST['num1'] : 0;
+            $num2 = isset($_POST['num2']) ? $_POST['num2'] : 0;
             $operation = $_POST['operation'];
-            $result = 0;
+            $result = '';
 
             switch ($operation) {
                 case 'add':
@@ -62,11 +69,35 @@
                 case 'divide':
                     $result = $num2 != 0 ? $num1 / $num2 : '无法除以零';
                     break;
+                case 'power':
+                    $result = pow($num1, $num2);
+                    break;
+                case 'sqrt1':
+                    $result = $num1 >= 0 ? sqrt($num1) : '无法对负数开平方根';
+                    break;
+                case 'sqrt2':
+                    $result = $num2 >= 0 ? sqrt($num2) : '无法对负数开平方根';
+                    break;
+                case 'log10':
+                    $result = $num1 > 0 ? log10($num1) : '对数输入必须大于零';
+                    break;
+                case 'sin':
+                    $result = sin(deg2rad($num1));
+                    break;
+                case 'cos':
+                    $result = cos(deg2rad($num1));
+                    break;
+                case 'tan':
+                    $result = tan(deg2rad($num1));
+                    break;
+                default:
+                    $result = '无效的操作';
+                    break;
             }
-            echo "结果：$result";
+
+            echo "<p>计算结果：$result</p>";
         }
         ?>
     </div>
-
 </body>
 </html>
