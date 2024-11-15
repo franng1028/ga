@@ -1,12 +1,37 @@
+<?php
+// 设置API的URL和API密钥
+$api_url = 'https://api.exchangeratesapi.io/latest?access_key=789ea8db9bc31e3fe4ab49c7d9b1b7ea';
+
+// 初始化cURL会话
+$ch = curl_init();
+
+// 设置cURL选项
+curl_setopt($ch, CURLOPT_URL, $api_url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+// 执行cURL请求并获取响应
+$response = curl_exec($ch);
+
+// 关闭cURL会话
+curl_close($ch);
+
+// 将响应解析为数组
+$data = json_decode($response, true);
+
+// 检查API响应是否成功
+if ($data && isset($data['rates'])) {
+    $rates = $data['rates'];
+} else {
+    die('无法获取汇率数据');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <title>汇率转换器</title>
     <link rel="stylesheet" type="text/css" href="GA.css">
-    <style>
-        
-    </style>
 </head>
 <body>
     <!-- 导航栏 -->
@@ -37,46 +62,52 @@
     <!-- 汇率转换器 -->
     <div class="container">
         <h2>汇率转换器</h2>
-        <form method="post">
-            <input type="number" name="amount" placeholder="金额（MYR）" min="0" step="0.01" required>
-            <select name="currency">
-                <option value="USD">美元 (USD)</option>
-                <option value="EUR">欧元 (EUR)</option>
-                <option value="GBP">英镑 (GBP)</option>
-                <option value="JPY">日元 (JPY)</option>
-                <option value="AUD">澳元 (AUD)</option>
-            </select>
-            <button type="submit">转换</button>
+
+        <!-- 表单 -->
+        <form method="POST">
+            <label for="amount">金额:</label>
+            <input type="number" id="amount" name="amount" required><br><br>
+
+            <label for="from_currency">原币种:</label>
+            <select id="from_currency" name="from_currency" required>
+                <?php
+                // 生成原币种下拉选项
+                foreach ($rates as $currency => $rate) {
+                    echo "<option value='$currency'>$currency</option>";
+                }
+                ?>
+            </select><br><br>
+
+            <label for="to_currency">目标币种:</label>
+            <select id="to_currency" name="to_currency" required>
+                <?php
+                // 生成目标币种下拉选项
+                foreach ($rates as $currency => $rate) {
+                    echo "<option value='$currency'>$currency</option>";
+                }
+                ?>
+            </select><br><br>
+
+            <button type="submit" name="calculate">计算</button>
         </form>
 
         <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 获取用户输入的金额和选择的目标货币
-            $amount = isset($_POST['amount']) ? $_POST['amount'] : null; 
-            $currency = isset($_POST['currency']) ? $_POST['currency'] : null; 
-            $result = '';
+        // 处理表单提交
+        if (isset($_POST['calculate'])) {
+            $amount = $_POST['amount'];
+            $from_currency = $_POST['from_currency'];
+            $to_currency = $_POST['to_currency'];
 
-            // 验证输入是否为正数
-            if ($length <= 0) {
-                echo "<p>数字不可负数或零，请输入正数！</p>";
+            if ($from_currency == $to_currency) {
+                echo "<p>选择的原币种和目标币种相同，无需转换。</p>";
             } else {
-                // 汇率数据（假设汇率是固定的，可以替换为实时获取的API数据）
-                $rates = [
-                    'USD' => 0.22,   // 1 MYR = 0.22 USD
-                    'EUR' => 0.21,   // 1 MYR = 0.21 EUR
-                    'GBP' => 0.18,   // 1 MYR = 0.18 GBP
-                    'JPY' => 30.12,  // 1 MYR = 30.12 JPY
-                    'AUD' => 0.34    // 1 MYR = 0.34 AUD
-                ];
+                // 计算汇率
+                $from_rate = $rates[$from_currency];
+                $to_rate = $rates[$to_currency];
+                $converted_amount = ($amount / $from_rate) * $to_rate;
 
-                // 计算转换结果
-                if (array_key_exists($currency, $rates)) {
-                    $result = $amount * $rates[$currency] . " " . $currency;
-                } else {
-                    $result = "不支持该货币";
-                }
+                echo "<p>$amount $from_currency 转换为 $to_currency 的金额为: " . round($converted_amount, 2) . " $to_currency</p>";
             }
-            echo "转换结果：$result";
         }
         ?>
     </div>
