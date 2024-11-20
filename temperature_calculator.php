@@ -26,7 +26,6 @@
     <div class="sidebar">
         <h3>快速导航</h3>
         <ul>
-            <li><a href="number_calculator.php">数字计算器</a></li>
             <li><a href="length_calculator.php">长度转换</a></li>
             <li><a href="weight_calculator.php">重量转换</a></li>
             <li><a href="temperature_calculator.php">温度转换</a></li>
@@ -48,30 +47,32 @@
         </form>
 
         <?php
-        // 处理表单提交
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 使用 isset() 检查变量是否存在，并提供默认值
-            $length = isset($_POST['temperature']) ? $_POST['temperature'] : null; 
-            $conversion = isset($_POST['conversion']) ? $_POST['conversion'] : null; 
-            $result = '';
+// 处理表单提交
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // 获取表单数据，并确保是数值
+    $temperature = isset($_POST['temperature']) ? floatval($_POST['temperature']) : null; 
+    $conversion = isset($_POST['conversion']) ? $_POST['conversion'] : null; 
+    $result = ''; // 初始化结果变量
 
-            // 验证输入是否为正数
-            if ($length <= 0) {
-                echo "<p>数字不可负数或零，请输入正数！</p>";
-            } else {
-                // 根据用户选择的单位进行换算
-                if ($conversion == 'to_fahrenheit') {
-                    $result = ($temperature * 9 / 5) + 32;
-                    echo "<p>转换结果：$temperature°C = $result°F</p>"; // 输出摄氏度转华氏度的结果
-                } elseif ($conversion == 'to_kelvin') {
-                    $result = $temperature + 273.15;
-                    echo "<p>转换结果：$temperature°C = $result K</p>"; // 输出摄氏度转开尔文的结果
-                } else {
-                    echo "<p>请选择有效的转换选项</p>";
-                }
-            }
+    // 验证输入是否为 null
+    if ($temperature === null || $temperature === '') {
+        echo "<p>请输入有效的温度值！</p>";
+    } else {
+        // 根据用户选择的单位进行换算
+        if ($conversion == 'to_fahrenheit') {
+            $result = ($temperature * 9 / 5) + 32; // 摄氏度转华氏度
+            echo "<p>转换结果：{$temperature}°C = {$result}°F</p>";
+        } elseif ($conversion == 'to_kelvin') {
+            $result = $temperature + 273.15; // 摄氏度转开尔文
+            echo "<p>转换结果：{$temperature}°C = {$result} K</p>";
+        } else {
+            echo "<p>请选择有效的转换选项</p>";
         }
-        ?>
+    }
+}
+?>
+
+
     </div>
 </body>
 </html>
