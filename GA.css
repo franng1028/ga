@@ -260,7 +260,7 @@ button.clear:hover {
     color: white;
     height: 100vh;
     position: fixed;
-    top: 150px;
+    top: 90px;
     left: 0;
     padding: 20px;
     overflow-y: auto; /* 当内容过多时，自动出现滚动条 */
