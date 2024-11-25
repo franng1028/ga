@@ -1,6 +1,5 @@
-<!-- index.php -->
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Calculator Online</title>
@@ -32,7 +31,7 @@
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 </div>
 
-    <script src="script.js"></script> <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 </html>
