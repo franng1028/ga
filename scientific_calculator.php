@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>科学计算器</title>
+    <title>Scientific_Calculator</title>
     <link rel="stylesheet" type="text/css" href="GA.css">
     <style>
         
@@ -10,25 +10,25 @@
 </head>
 <body>
 
-    <!-- 导航栏 -->
+    <!-- Navigation Bar -->
     <div class="navbar">
         <div class="left">
-            <a href="index.php" class="plain-link">欢迎使用多功能计算器</a>
+        <a href="index.php" class="plain-link">Welcome to The Multi-Function Caculator</a>
         </div>
         <div class="right">
             <ul>
-                <li><a href="number_calculator.php">数字计算器|</a></li>
-                <li><a href="conversion_calculator.php">转换计算器</a></li>
+                <li><a href="number_calculator.php">Digital Calculator|</a></li>
+                <li><a href="conversion_calculator.php">Coversion Calculator</a></li>
             </ul>
         </div>
     </div>
 
-    <!-- 左侧导航栏 -->
+    <!-- Left Navigation Bar -->
     <div class="sidebar">
-        <h3>快速导航</h3>
+        <h3>Navigation</h3>
         <ul>
-            <li><a href="basic_calculator.php">基础计算器</a></li>
-            <li><a href="scientific_calculator.php">科学计算器</a></li>
+        <li><a href="basic_calculator.php">Basic Calculator</a></li>
+        <li><a href="scientific_calculator.php">Scientific Calculator</a></li>
         </ul>
     </div>
 
@@ -128,7 +128,7 @@
                 // 使用 eval 进行计算
                 display.value = eval(input);
             } catch (error) {
-                display.value = '错误';
+                display.value = 'Error';
             }
         }
     </script>

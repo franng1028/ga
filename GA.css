@@ -86,6 +86,46 @@
     color: orange;  /* 鼠标悬停时更改链接颜色 */
 }
 
+.mySlides { /*新加入的滑动图片*/
+    display: none;
+    width: 100%;
+    opacity: 0; /* Start with opacity 0 */
+    animation: fadeIn 1s ease-in-out forwards; /* Apply fade-in animation */
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .w3-content {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    border: 100px;
+  }
+  
+  .center {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  .w3-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .w3-display-left {
+    left: 0;
+  }
+  
+  .w3-display-right {
+    right: 0;
+  }
+  
 /* 渐变背景动画 */
 @keyframes fade-in {
     from { opacity: 0; }
@@ -94,12 +134,12 @@
 
 /* 内容容器 */
 .container {
-    width: 90%;
+    width: 1000%;
     max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 80px auto;
+    padding: 30px;
     background-color: #f9f9f9;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -110,7 +150,7 @@
 }
 
 .container ul li a:hover {
-    color: rgb(0, 0, 210);  /* 鼠标悬停时更改链接颜色 */
+    color: rgb(0, 210, 210);  /* 鼠标悬停时更改链接颜色 */
 }
 
 .container ul {
@@ -198,7 +238,7 @@ button {
     font-size: 18px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #24cc2a;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -220,7 +260,7 @@ button.clear:hover {
     color: white;
     height: 100vh;
     position: fixed;
-    top: 0;
+    top: 150px;
     left: 0;
     padding: 20px;
     overflow-y: auto; /* 当内容过多时，自动出现滚动条 */

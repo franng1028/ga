@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>高级数字计算器</title>
+    <title>Advanced number calculator</title>
     <link rel="stylesheet" type="text/css" href="GA.css">
     <style>
         
@@ -12,40 +12,40 @@
     <!-- 导航栏 -->
     <div class="navbar">
         <div class="left">
-            <a href="index.php" class="plain-link">欢迎使用多功能计算器</a>
+        <a href="index.php" class="plain-link">Welcome to The Multi-Function Caculator</a>
         </div>
         <div class="right">
             <ul>
-                <li><a href="number_calculator.php">数字计算器|</a></li>
-                <li><a href="conversion_calculator.php">转换计算器</a></li>
+                <li><a href="number_calculator.php">Digital Calculator|</a></li>
+                <li><a href="conversion_calculator.php">Coversion Calculator</a></li>
             </ul>
         </div>
     </div>
 
     <!-- 左侧导航栏 -->
     <div class="sidebar">
-        <h3>快速导航</h3>
+        <h3>Navigation</h3>
         <ul>
-            <li><a href="basic_calculator.php">基础计算器</a></li>
-            <li><a href="scientific_calculator.php">科学计算器</a></li>
+        <li><a href="basic_calculator.php">Basic Calculator</a></li>
+        <li><a href="scientific_calculator.php">Scientific Calculator</a></li>
         </ul>
     </div>
 
     <!-- 计算器部分 -->
     <div class="container">
-        <h2>基础计算器</h2>
+        <h2>Digital Calculator</h2>
 
         <!-- 计算器表单 -->
         <form method="post">
-            <input type="number" name="num1" placeholder="数字1" step="0.01" required>
-            <input type="number" name="num2" placeholder="数字2" step="0.01">
+            <input type="number" name="num1" placeholder="Number1" step="0.01" required>
+            <input type="number" name="num2" placeholder="Number2" step="0.01">
             <select name="operation">
-                <option value="add">加法</option>
-                <option value="subtract">减法</option>
-                <option value="multiply">乘法</option>
-                <option value="divide">除法</option>
+                <option value="add">Addition</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
             </select>
-            <button type="submit">计算</button>
+            <button type="submit">Calculate it</button>
         </form>
 
         <?php
@@ -66,19 +66,19 @@
                     $result = $num1 * $num2;
                     break;
                 case 'divide':
-                    $result = $num2 != 0 ? $num1 / $num2 : '无法除以零';
+                    $result = $num2 != 0 ? $num1 / $num2 : 'Can Not Divide By 0';
                     break;
                 case 'power':
                     $result = pow($num1, $num2);
                     break;
                 case 'sqrt1':
-                    $result = $num1 >= 0 ? sqrt($num1) : '无法对负数开平方根';
+                    $result = $num1 >= 0 ? sqrt($num1) : 'Unable to take the square root of a negative number';
                     break;
                 case 'sqrt2':
-                    $result = $num2 >= 0 ? sqrt($num2) : '无法对负数开平方根';
+                    $result = $num2 >= 0 ? sqrt($num2) : 'Unable to take the square root of a negative number';
                     break;
                 case 'log10':
-                    $result = $num1 > 0 ? log10($num1) : '对数输入必须大于零';
+                    $result = $num1 > 0 ? log10($num1) : 'Logarithmic input must be greater than zero';
                     break;
                 case 'sin':
                     $result = sin(deg2rad($num1));
@@ -90,13 +90,27 @@
                     $result = tan(deg2rad($num1));
                     break;
                 default:
-                    $result = '无效的操作';
+                    $result = 'Errol';
                     break;
             }
 
-            echo "<p>计算结果：$result</p>";
-        }
+            echo "<p>Conversion result：$result</p>";
+
+            }
         ?>
+
+        <div class="w3-content">
+            <img class="mySlides" src="Online.png">
+            <img class="mySlides" src="MATHP1.png">
+            <img class="mySlides" src="MATHP2.png">
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+
+        <script src="script.js"></script> <!-- Link to external JavaScript -->
+        
+
     </div>
 </body>
 </html>
