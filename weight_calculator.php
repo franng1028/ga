@@ -9,7 +9,6 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
     <div class="navbar">
         <div class="left">
             <a href="index.php" class="plain-link">Welcome to The Multi-Function Caculator</a>
@@ -22,7 +21,6 @@
         </div>
     </div>
 
-    <!-- 左侧导航栏 -->
     <div class="sidebar">
         <h3>Navigation</h3>
         <ul>
@@ -33,7 +31,6 @@
         </ul>
     </div>
 
-    <!-- 重量转换器 -->
     <div class="container">
         <h2>Weight Converter</h2>
 
@@ -52,18 +49,14 @@
         </form>
 
         <?php
-        // 处理表单提交
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 使用 isset() 检查变量是否存在，并提供默认值
             $weight = isset($_POST['weight']) ? $_POST['weight'] : null; 
             $conversion = isset($_POST['conversion']) ? $_POST['conversion'] : null; 
             $result = '';
 
-            // 验证输入是否为正数
             if ($weight <= 0) {
                 echo "<p>The number cannot be negative or zero, please enter a positive number!</p>";
             } else {
-                // 根据用户选择的单位进行换算
                 switch ($conversion) {
                     case 'to_grams':
                         $result = $weight * 1000 . " Grams"; // 1 公斤 = 1000 克
@@ -91,7 +84,6 @@
                         break;
                 }
             }
-            // 输出转换结果
             echo "<p>Conversion result：$result</p>";
         }
         ?>
