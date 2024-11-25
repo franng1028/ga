@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Scientific_Calculator</title>
@@ -76,20 +76,17 @@
     <script>
         const display = document.getElementById('display');
 
-        // 捕捉键盘输入
         display.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 calculate();
             }
         });
 
-        // 追加普通字符到显示框
         function appendToDisplay(value) {
             display.value += value;
             display.focus();
         }
 
-        // 追加函数到显示框（如 sin、cos）
         function appendFunction(func) {
             if (func === 'π') {
                 display.value += 'π';
@@ -101,17 +98,14 @@
             display.focus();
         }
 
-        // 清除显示内容
         function clearDisplay() {
             display.value = '';
         }
 
-        // 删除最后一个字符
         function deleteLast() {
             display.value = display.value.slice(0, -1);
         }
 
-        // 计算结果
         function calculate() {
             let input = display.value
                 .replace(/sin/g, 'Math.sin')
@@ -122,10 +116,9 @@
                 .replace(/π/g, 'Math.PI')
                 .replace(/exp/g, 'Math.exp')
                 .replace(/abs/g, 'Math.abs')
-                .replace(/\^/g, '**'); // 替换指数运算符
+                .replace(/\^/g, '**'); 
 
             try {
-                // 使用 eval 进行计算
                 display.value = eval(input);
             } catch (error) {
                 display.value = 'Error';
