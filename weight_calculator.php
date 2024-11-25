@@ -55,12 +55,12 @@
         // 处理表单提交
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // 使用 isset() 检查变量是否存在，并提供默认值
-            $length = isset($_POST['weight']) ? $_POST['weight'] : null; 
+            $weight = isset($_POST['weight']) ? $_POST['weight'] : null; 
             $conversion = isset($_POST['conversion']) ? $_POST['conversion'] : null; 
             $result = '';
 
             // 验证输入是否为正数
-            if ($length <= 0) {
+            if ($weight <= 0) {
                 echo "<p>The number cannot be negative or zero, please enter a positive number!</p>";
             } else {
                 // 根据用户选择的单位进行换算
