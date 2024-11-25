@@ -1,13 +1,12 @@
 <!-- conversion_calculators.php -->
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Coversion Calculator</title>
     <link rel="stylesheet" href="GA.css">
 </head>
 <body>
-    <!-- 导航栏 -->
     <div class="navbar">
         <div class="left">
         <a href="index.php" class="plain-link">Welcome to The Multi-Function Caculator</a>
@@ -27,7 +26,6 @@
             <li><a href="weight_calculator.php">Weight Converter</a></li>
             <li><a href="temperature_calculator.php">Temperature Converter</a></li>
             <li><a href="currency_converter.php">Currency Converter</a></li>
-            <!-- 添加更多的转换计算器 -->
         </ul>
     </div>
 </body>
