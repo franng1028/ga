@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Currency Converter</title>
@@ -9,7 +9,6 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
     <div class="navbar">
         <div class="left">
         <a href="index.php" class="plain-link">Welcome to The Multi-Function Caculator</a>
@@ -22,7 +21,6 @@
         </div>
     </div>
 
-    <!-- 左侧导航栏 -->
     <div class="sidebar">
     <h3>Navigation</h3>
         <ul>
@@ -33,7 +31,6 @@
         </ul>
     </div>
 
-    <!-- 汇率转换器 -->
     <div class="container">
         <h2>Currency Converter</h2>
         <form method="post">
@@ -50,16 +47,13 @@
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 获取用户输入的金额和选择的目标货币
             $amount = isset($_POST['amount']) ? $_POST['amount'] : null; 
             $currency = isset($_POST['currency']) ? $_POST['currency'] : null; 
             $result = '';
 
-            // 验证输入是否为正数
             if ($amount <= 0) {
                 echo "<p>The number cannot be negative or zero, please enter a positive number!</p>";
             } else {
-                // 汇率数据（假设汇率是固定的，可以替换为实时获取的API数据）
                 $rates = [
                     'USD' => 0.22,   // 1 MYR = 0.22 USD
                     'EUR' => 0.21,   // 1 MYR = 0.21 EUR
@@ -68,7 +62,6 @@
                     'AUD' => 0.34    // 1 MYR = 0.34 AUD
                 ];
 
-                // 计算转换结果
                 if (array_key_exists($currency, $rates)) {
                     $result = $amount * $rates[$currency] . " " . $currency;
                 } else {
