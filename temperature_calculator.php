@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>temperature_Converter</title>
@@ -9,7 +9,6 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
     <div class="navbar">
         <div class="left">
             <a href="index.php" class="plain-link">Welcome to The Multi-Function Caculator</a>
@@ -22,7 +21,6 @@
         </div>
     </div>
 
-    <!-- 左侧导航栏 -->
     <div class="sidebar">
         <h3>Navigation</h3>
         <ul>
@@ -33,7 +31,6 @@
         </ul>
     </div>
 
-    <!-- 温度转换器 -->
     <div class="container">
         <h2>Temperature Converter</h2>
 
@@ -47,18 +44,14 @@
         </form>
 
         <?php
-        // 处理表单提交
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 使用 isset() 检查变量是否存在，并提供默认值
             $temperature = isset($_POST['temperature']) ? $_POST['temperature'] : null; 
             $conversion = isset($_POST['conversion']) ? $_POST['conversion'] : null; 
             $result = '';
 
-            // 验证输入是否为正数
             if ($temperature <= 0) {
                 echo "<p>The number cannot be negative or zero, please enter a positive number!</p>";
             } else {
-                // 根据用户选择的单位进行换算
                 if ($conversion == 'to_fahrenheit') {
                     $result = ($temperature * 9 / 5) + 32;
                     echo "<p>Conversion result：$temperature = $result°F</p>"; // 输出摄氏度转华氏度的结果
