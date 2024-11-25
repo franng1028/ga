@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Length Calculator</title>
@@ -9,7 +9,6 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
     <div class="navbar">
         <div class="left">
         <a href="index.php" class="plain-link">Welcome to The Multi-Function Caculator</a>
@@ -22,7 +21,6 @@
         </div>
     </div>
 
-    <!-- 左侧导航栏 -->
     <div class="sidebar">
         <h3>Navigation</h3>
         <ul>
@@ -33,7 +31,6 @@
         </ul>
     </div>
 
-    <!-- 长度转换器 -->
     <div class="container">
         <h2>Length Converter</h2>
 
@@ -51,18 +48,14 @@
         </form>
 
         <?php
-        // 处理表单提交
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 使用 isset() 检查变量是否存在，并提供默认值
             $length = isset($_POST['length']) ? $_POST['length'] : null; 
             $conversion = isset($_POST['conversion']) ? $_POST['conversion'] : null; 
             $result = '';
 
-            // 验证输入是否为正数
             if ($length <= 0) {
                 echo "<p>The number cannot be negative or zero, please enter a positive number!</p>";
             } else {
-                // 根据用户选择的单位进行换算
                 switch ($conversion) {
                     case 'to_km':
                         $result = $length / 1000 . " Kilometers";
@@ -71,23 +64,22 @@
                         $result = $length * 100 . " Centimeters";
                         break;
                     case 'to_in':
-                        $result = $length * 39.3701 . " Inches"; // 1 米 = 39.3701 英寸
+                        $result = $length * 39.3701 . " Inches"; 
                         break;
                     case 'to_ft':
-                        $result = $length * 3.28084 . " Feet"; // 1 米 = 3.28084 英尺
+                        $result = $length * 3.28084 . " Feet"; 
                         break;
                     case 'to_yd':
-                        $result = $length * 1.09361 . " Yard"; // 1 米 = 1.09361 码
+                        $result = $length * 1.09361 . " Yard"; 
                         break;
                     case 'to_mile':
-                        $result = $length / 1609.34 . " Miles"; // 1 英里 = 1609.34 米
+                        $result = $length / 1609.34 . " Miles"; 
                         break;
                     default:
                         $result = "Invalid conversion option";
                         break;
                 }
 
-                // 输出转换结果
                 echo "<p>Conversion result：$result</p>";
             }
         }
