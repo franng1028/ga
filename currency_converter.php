@@ -56,7 +56,7 @@
             $result = '';
 
             // 验证输入是否为正数
-            if ($length <= 0) {
+            if ($amount <= 0) {
                 echo "<p>The number cannot be negative or zero, please enter a positive number!</p>";
             } else {
                 // 汇率数据（假设汇率是固定的，可以替换为实时获取的API数据）
