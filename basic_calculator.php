@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Advanced number calculator</title>
@@ -9,7 +9,6 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
     <div class="navbar">
         <div class="left">
         <a href="index.php" class="plain-link">Welcome to The Multi-Function Caculator</a>
@@ -22,7 +21,6 @@
         </div>
     </div>
 
-    <!-- 左侧导航栏 -->
     <div class="sidebar">
         <h3>Navigation</h3>
         <ul>
@@ -31,11 +29,9 @@
         </ul>
     </div>
 
-    <!-- 计算器部分 -->
     <div class="container">
         <h2>Digital Calculator</h2>
 
-        <!-- 计算器表单 -->
         <form method="post">
             <input type="number" name="num1" placeholder="Number1" step="0.01" required>
             <input type="number" name="num2" placeholder="Number2" step="0.01">
