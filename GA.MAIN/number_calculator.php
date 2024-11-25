@@ -1,6 +1,6 @@
 <!-- basic_calculators.php -->
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Digital Calculator</title>
