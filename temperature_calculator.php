@@ -50,21 +50,21 @@
         // 处理表单提交
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // 使用 isset() 检查变量是否存在，并提供默认值
-            $length = isset($_POST['temperature']) ? $_POST['temperature'] : null; 
+            $temperature = isset($_POST['temperature']) ? $_POST['temperature'] : null; 
             $conversion = isset($_POST['conversion']) ? $_POST['conversion'] : null; 
             $result = '';
 
             // 验证输入是否为正数
-            if ($length <= 0) {
+            if ($temperature <= 0) {
                 echo "<p>The number cannot be negative or zero, please enter a positive number!</p>";
             } else {
                 // 根据用户选择的单位进行换算
                 if ($conversion == 'to_fahrenheit') {
                     $result = ($temperature * 9 / 5) + 32;
-                    echo "<p>Conversion result：$temperature°C = $result°F</p>"; // 输出摄氏度转华氏度的结果
+                    echo "<p>Conversion result：$temperature = $result°F</p>"; // 输出摄氏度转华氏度的结果
                 } elseif ($conversion == 'to_kelvin') {
                     $result = $temperature + 273.15;
-                    echo "<p>Conversion result：$temperature°C = $result K</p>"; // 输出摄氏度转开尔文的结果
+                    echo "<p>Conversion result：$temperature = $result K</p>"; // 输出摄氏度转开尔文的结果
                 } else { 
                     echo "<p>Please select a valid conversion option</p>";
                 }
