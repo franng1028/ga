@@ -59,25 +59,25 @@
             } else {
                 switch ($conversion) {
                     case 'to_grams':
-                        $result = $weight * 1000 . " Grams"; // 1 公斤 = 1000 克
+                        $result = $weight * 1000 . " Grams"; 
                         break;
                     case 'to_mg':
-                        $result = $weight * 1_000_000 . " Milograms"; // 1 公斤 = 1,000,000 毫克
+                        $result = $weight * 1_000_000 . " Milograms"; 
                         break;
                     case 'to_pounds':
-                        $result = $weight * 2.20462 . " Pounds"; // 1 公斤 = 2.20462 磅
+                        $result = $weight * 2.20462 . " Pounds"; 
                         break;
                     case 'to_ounces':
-                        $result = $weight * 35.274 . " Ounces"; // 1 公斤 = 35.274 盎司
+                        $result = $weight * 35.274 . " Ounces"; 
                         break;
                     case 'to_tonnes':
-                        $result = $weight / 1000 . " Tonnes"; // 1 公吨 = 1000 公斤
+                        $result = $weight / 1000 . " Tonnes"; 
                         break;
                     case 'to_us_ton':
-                        $result = $weight * 0.00110231 . " US Tons"; // 1 公斤 = 0.00110231 美吨
+                        $result = $weight * 0.00110231 . " US Tons"; 
                         break;
                     case 'to_uk_ton':
-                        $result = $weight * 0.000984207 . " UK Tons"; // 1 公斤 = 0.000984207 英吨
+                        $result = $weight * 0.000984207 . " UK Tons"; 
                         break;
                     default:
                         $result = "Invalid conversion option";
